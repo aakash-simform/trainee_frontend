@@ -17,6 +17,11 @@ A simple **User Management App** built with **React** on the frontend and **Expr
 - **Database**: Mysql
 - **CORS**: For handling cross-origin requests between the React frontend and Express backend.
 
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
 
 ### Frontend Setup (React)
