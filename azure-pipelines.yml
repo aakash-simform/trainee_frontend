@@ -1,6 +1,6 @@
 trigger:
   - main
-
+  
 variables:
   dockerRegistryServiceConnection: 'custom-service-name'
   imageRepository: 'myapp'
