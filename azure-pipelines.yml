@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Custom Agent'
 
 steps:
 - task: NodeTool@0
