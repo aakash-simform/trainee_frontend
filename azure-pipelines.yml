@@ -1,13 +1,8 @@
 trigger:
   - main
 
-name: $(Build.DefinitionName)_$(Date:yyyyMMdd)$(Rev:.r)
-
 pool:
   name: 'Custom Agent'
-
-variables:
-  buildDir: '$(System.DefaultWorkingDirectory)'
 
 steps:
   - checkout: self
@@ -19,18 +14,13 @@ steps:
 
   - script: |
       npm ci
-    displayName: 'Clean install dependencies'
-    workingDirectory: $(buildDir)
-
-  - script: |
       npm run build
-    displayName: 'Build project'
-    workingDirectory: $(buildDir)
+    displayName: 'Build app'
 
-  - task: Cache@2
+  - task: Docker@2
     inputs:
-      key: 'npm | "$(Agent.OS)" | package-lock.json'
-      restoreKeys: |
-        npm | "$(Agent.OS)"
-      path: $(buildDir)/node_modules
-    displayName: 'Cache npm packages'
+      command: build
+      dockerfile: Dockerfile
+      repository: myapp
+      tags: latest
+    displayName: 'Build Docker image'
