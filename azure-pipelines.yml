@@ -5,8 +5,6 @@ pool:
   name: 'Custom Agent'
 
 variables:
-  acrName: 'aakashdemo'
-  acrLoginServer: 'myacr.azurecr.io'
   imageName: 'myapp'
   imageTag: 'latest'
 
@@ -24,23 +22,9 @@ steps:
     displayName: 'Build app'
 
   - task: Docker@2
-    displayName: 'Login to ACR'
-    inputs:
-      command: login
-      containerRegistry: 'new-service-con-name'  # this must match your service connection name
-
-  - task: Docker@2
     displayName: 'Build Docker image'
     inputs:
       command: build
       dockerfile: Dockerfile
       repository: $(imageName)
       tags: latest
-  
-  - task: Docker@2
-    displayName: 'Push Docker image to ACR'
-    inputs:
-      command: push
-      repository: $(imageName)
-      tags: latest
-      containerRegistry: 'MyAcrDockerConnection'
