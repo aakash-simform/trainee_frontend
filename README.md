@@ -1,4 +1,4 @@
-# User Management App (React + Express + Mysql)
+# User Management App 2.0 (React + Express + Mysql)
 
 A simple **User Management App** built with **React** on the frontend and **Express** on the backend. This app allows users to list, add, and update user data.
 
