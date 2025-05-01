@@ -33,13 +33,17 @@ stages:
       inputs:
         dockerVersion: '17.09.0-ce'
       displayName: 'Install Docker'
+   
+    - script: |
+        sudo systemctl start docker
+      displayName: 'Start Docker'
 
     - task: Docker@2
       displayName: Build and push Docker image to ACR
       inputs:
         command: buildAndPush
         containerRegistry: $(dockerRegistryServiceConnection)
-    #     repository: $(imageRepository)
-    #     dockerfile: $(dockerfilePath)
-    #     tags: |
-    #       $(tag)
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        tags: |
+          $(tag)
