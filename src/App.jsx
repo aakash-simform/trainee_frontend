@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <div className="app-container">
         <header className="header">
-          <h1>User Management App</h1>
+          <h1>Self hosted agent demo</h1>
         </header>
         <nav className="navbar">
           <div className="nav-item">
