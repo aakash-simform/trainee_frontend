@@ -1,7 +1,7 @@
 trigger:
   - main
   
-variables:
+# variables:
   # dockerRegistryServiceConnection: 'custom-service-name'
   # imageRepository: 'myapp'
   # dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
